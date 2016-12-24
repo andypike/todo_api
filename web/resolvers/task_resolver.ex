@@ -12,4 +12,10 @@ defmodule TodoApi.TaskResolver do
 
     {:ok, tasks}
   end
+
+  def create(args, _) do
+    %Task{}
+    |> Task.changeset(args)
+    |> Repo.insert
+  end
 end

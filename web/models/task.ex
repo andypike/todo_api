@@ -10,4 +10,10 @@ defmodule TodoApi.Task do
 
     timestamps
   end
+
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:title, :body, :user_id, :completed])
+    |> validate_required([:title, :body, :user_id])
+  end
 end
